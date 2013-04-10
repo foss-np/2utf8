@@ -41,6 +41,7 @@ function map {
 	# 'r') utf="छ्"; continue;;
 	'h') utf="ज"; continue;;
 	'H') utf="ज्"; continue;;
+	'') utf="झ्"; continue;;
 	'`') utf="ञ"; continue;;
 	'~') utf="ञ्"; continue;;
 	'6') utf="ट"; continue;;
@@ -78,12 +79,14 @@ function map {
 	'd') utf="म"; continue;;
 	'D') utf="म्"; continue;;
 	'o') utf="य"; continue;;
+	'Ø') utf="्य"; continue;; # exception no unicode char
 
 	'/') utf="र"; continue;;
 	'{') utf="र्"; continue;;
+	'¥') utf="र्"; continue;; # exception no unicode char
 	'«'|'|') utf="्र"; continue;;
 	'?'|'¿') utf="रु"; continue;;
-	# '[') utf="ृ"; continue;;
+	'[') utf="ृ"; continue;;
 
 	'n') utf="ल"; continue;;
 	'N') utf="ल्"; continue;;
