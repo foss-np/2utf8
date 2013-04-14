@@ -20,7 +20,7 @@ function map {
 	"'") utf="ु"; continue;;
 	# '') utf="ऊ"; continue;;
 	'"') utf="ू"; continue;;
-	# '') utf="ऋ"; continue;;
+	'C') utf="ऋ"; continue;;
 	'P') utf="ए"; continue;;
 	']') utf="े"; continue;;
 	# 'i') utf="ऐ"; continue;;
@@ -34,14 +34,18 @@ function map {
 	'u') utf="ग"; continue;;
 	'U') utf="ग्"; continue;;
 	'3') utf="घ"; continue;;
+	'£') utf="घ्"; continue;;
 	'ª') utf="ङ"; continue;;
+	'Í') utf="ङ्क"; continue;;
+
+
 	'r') utf="च"; continue;;
 	'R') utf="च्"; continue;;
 	'5') utf="छ"; continue;;
 	# 'r') utf="छ्"; continue;;
 	'h') utf="ज"; continue;;
 	'H') utf="ज्"; continue;;
-	'') utf="झ्"; continue;;
+	''|'¤') utf="झ्"; continue;;
 	'`') utf="ञ"; continue;;
 	'~') utf="ञ्"; continue;;
 	'6') utf="ट"; continue;;
@@ -63,7 +67,8 @@ function map {
 	'Y') utf="थ्"; continue;;
 	'b') utf="द"; continue;;
 	'å') utf="द्व"; continue;;
-	'4') utf="द्द"; continue;;
+	'4') utf="द्ध"; continue;;
+	'2') utf="द्द"; continue;;
 
 	'w') utf="ध"; continue;;
 	'W') utf="ध्"; continue;;
@@ -71,7 +76,8 @@ function map {
 	'G') utf="न्"; continue;;
 	'k') utf="प"; continue;;
 	'K') utf="प्"; continue;;
-	# '>') utf="फ"; continue;;
+	# '') utf="फ"; continue;;
+	'Ï') utf="फ्"; continue;;
 	'a') utf="ब"; continue;;
 	'A') utf="ब्"; continue;;
 	'e') utf="भ"; continue;;
@@ -94,6 +100,8 @@ function map {
 	'J') utf="व्"; continue;;
 	'z') utf="श"; continue;;
 	'Z') utf="श्"; continue;;
+	'>') utf="श्र"; continue;;
+
 	# '>') utf="ष"; continue;;
 	'i') utf="ष्"; continue;;
 	';') utf="स"; continue;;
@@ -125,15 +133,22 @@ function map {
 	'\') utf="्"; continue;;
 	'÷') utf="/"; continue;;
 
-	'Ù') utf=";"; continue;;
+	'') utf="!"; continue;;
+	'≤' | 'Ù') utf=";"; continue;;
 	'.') utf="।"; continue;;
+	'<') utf="?"; continue;;
+	'æ'| 'Æ') utf='"'; continue;;
+
 
 	'±') utf="+"; continue;;
 	'=') utf="."; continue;;
 	'+') utf="ं"; continue;;
 	'F'|'') utf="ँ"; continue;;
+	'') utf="ँ"; continue;; #unknown only for single case
+
 	'®') utf="र"; continue;;
 	'') utf="त्त्‍"; continue;; #has the ZWJ at end
+
 	''|'Ú') utf="'"; continue;;
 	''|'') utf="-"; continue;;
 	*) utf=$flip;;
