@@ -2,6 +2,10 @@
 
 convert to utf-8!
 
+![Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
+2utf8 Copyright © 2013 to the 2utf8 Authors.
+___
+
 #### HOW-TO USE
 
 	$ ./main.sh -f sample.txt
