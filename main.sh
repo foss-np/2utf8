@@ -169,7 +169,7 @@ fi
 
 IFS="" #don't ignore spaces
 len=${#text}
-for ((i=0; i < len; i++)); do
+for ((i=0; i <= len; i++)); do
     flip=${text:$i:1}
     out=$out$utf
     map

@@ -1,19 +1,31 @@
+# re-adjustment after one-to-one mapping
+# Note: Please don't change the order!
+
+# basic
 s/अा/आ/g
-s/भ\(ँ\?[िीुूेैोौ]\?ँ\?\)m/झ\1/g
-s/प\(ँ\?[ािीुूेैोौ]\?ँ\?\)m/फ\1/g
+s/भ\(ँ\?्\?[िीुूेैोौ]\?ँ\?\)m/झ\1/g
+s/प\(ँ\?्\?[ािीुूेैोौ]\?ँ\?\)m/फ\1/g
 s/इर्/ई/g
 s/\(\[[^े]*\)े /\1] /g
 s/त्रm/क्र/g
-s/उँ\?m/ऊ/g
-s/त्तm/क्र/g
+s/उm/ऊ/g
+s/उँm/ऊँ/g
+s/त्तm/क्त/g
 s/ञ् /~ /g
 s/ाे/ो/g
 s/ाै/ौ/g
 s/ि\(.\(्.\)\?\)/\1ि/g
 s/्ा//g
 s/क्ष्ो/क्षे/g
+
+# र् ref problem
 s/\(.[ािीुूेैोौ]\?\)र्/र्\1/g
 s/\(.\)\([ािीुूेैोौ]\?\)्र/\1्र\2/g
+
+
+#half letters ण् ष् क्ष् ञ् with modifiers pointed by @spradhan
+s/\([णषक्षञ]\)्ो/\1े/g
+s/\([णषक्षञ]\)्ौ/\1ै/g
 
 #make preeti! adding ZWJ
 s/ख्न/ख्‍न/g
@@ -21,6 +33,7 @@ s/ख्न/ख्‍न/g
 # exceptions
 s/;\([ािीुूेैोौंँ]\)/\1;/g
 
-# autocorrect
+# correctection
+s/प्रm/फ्र/g
 s/ोे/ो/g
 s/ैै/ै/g
