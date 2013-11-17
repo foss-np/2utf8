@@ -1,5 +1,5 @@
-run:
-	./main.sh -f sample.txt
+default:
+	@echo "[FILE=<textfile>] make file"
 
 .PHONY: test
 test:
@@ -8,3 +8,4 @@ test:
 
 clean:
 	rm test/output.txt
+	
