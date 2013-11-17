@@ -155,19 +155,26 @@ function map {
     esac
 }
 
-# checking arguments
-if [ $# -eq 0 ]; then
-    Usage;
-    exit 1;
-fi
-
-if [ $1 == '-f' ]; then
-    text=$(cat $2);
-else
-    text="$@" # $@ can't be used for counting
-fi
-
 IFS="" #don't ignore spaces
+
+# check pipe
+if [ -t 0 ]; then
+    if [ $# -eq 0 ]; then
+	Usage
+	exit 1;
+    fi
+
+    if [ $1 == '-f' ]; then
+	text=$(cat $2);
+    else
+	text="$@" # $@ can't be used for counting
+    fi
+else
+    while read data; do
+	text+="$data"
+    done
+fi
+
 len=${#text}
 for ((i=0; i <= len; i++)); do
     flip=${text:$i:1}

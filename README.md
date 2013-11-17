@@ -3,7 +3,8 @@
 convert to utf-8!
 
 ![Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
-2utf8 Copyright © 2013 to the 2utf8 Authors.
+
+2utf8 © 2013 to the 2utf8 authors.
 ___
 
 #### HOW-TO USE
@@ -42,17 +43,16 @@ which is the disaster when we reach झ, त्र, क्ष, फ, र्
 
 `rules.pattern` scans patters things does following
 * convert multiple char to single standard char
-* postion of ref(रेफ)
-* postion of `ि` in preeti  its in opposite  side
-* make the `फ`, `झ` which aren't even define in preeti
-* And some specific rules target to our source.
+* position of ref(रेफ)
+* position of `ि`, `ी`
+* make the `फ`, `झ` which aren't even define.
 
 ****
 
 # FAQ
 ##### Why again unicode converter ?
 
-**A.** Its because earlier one was in java, i'm not wasting my harddisk space just to run the stupid simple convertor, and i don't like the 150+ MB eating meamory java!
+**A.** Its because earlier one was in java, I'm not wasting my hard-disk space just to run the stupid simple converter, and i don't like the 150+ MB eating memory java!
 
 ##### Why do in bash are you porting?
 
