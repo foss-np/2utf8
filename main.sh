@@ -1,12 +1,7 @@
 #!/bin/bash
 
 WD="$(dirname $0)"
-
-function Usage {
-    echo -e "Usage: \t2utf8 [Option]";
-    echo -e "\t-h | --help\tDisplay this message"
-    echo -e "\t-f | --file\tfile input"
-}
+PRG="$(basename $0)"
 
 function parser_map {
     case $flip in
@@ -164,17 +159,30 @@ function parser_init {
 		out=$out$utf
 		parser_map
 	done
-	echo $out | sed -f $WD/rules.pattern
+	echo -n $out | sed -f $WD/rules.pattern
 }
 
+function read_file {
+    while read data; do
+		parser_init "$data"
+		echo
+    done < $1
+	exit 0
+}
+
+function Usage {
+    echo -e "Usage: \t2utf8 [Option]";
+    echo -e "\t-h | --help\tDisplay this message"
+    echo -e "\t-f | --file\tfile input"
+}
 
 IFS="" #don't ignore spaces
 
-# check pipe
-if [ ! -t 0 ]; then
+if [ ! -t 0 ]; then # check pipe
     while read data; do
 		parser_init "$data"
     done
+	echo
 	exit 0
 fi
 
@@ -183,11 +191,26 @@ if [ $# -eq 0 ]; then
 	exit 1;
 fi
 
-if [ $1 == '-f' ]; then
-    while read data; do
-		parser_init "$data"
-    done < $2
-	exit 0
-fi
+TEMP=$(getopt -o f:h\
+              -l file:,help\
+              -n "2utf8"\
+              -- "$@")
 
-parser_init "$@"
+if [ $? != "0" ]; then exit 1; fi
+eval set -- "$TEMP"
+
+
+while true; do
+    case $1 in
+	-f|--file) read_file $2; shift 2;;
+	-h|--help) Usage; exit;;
+	--)		 shift; break;;
+    esac
+done
+
+# extra argument
+for arg do
+   parser_init $arg
+   echo -n ' '
+done
+echo

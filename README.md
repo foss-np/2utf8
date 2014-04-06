@@ -9,24 +9,23 @@ ___
 
 #### HOW-TO USE
 
-	$ ./main.sh -f sample.txt
+	$ ./main.sh -h
+	Usage: 	2utf8 [Option]
+		-h | --help	Display this message
+		-f | --file	file input
+
 
 ###### Note: *Terminal output may not look :poop: pretty*
 
 #### Quick Test
 
-	 $ make
+	 $ ./main.sh a s d f
+	ब क म ा
 
 ###### Note: *You might wanna try in gedit/emacs and do built*
 
-### HOW-IT START
 
-* We have the simple shell script `./main.sh`
-	* map each character to respective unicodes [ you can see :poop: preeti map [here][preeti]]
-	* `rules.pattern` manipulate the position and sequence.
-
-****
-### Why `rules.pattern` ?
+### Why  to do this ?
 
 Problem of the Preeti and other non-unicode fonts terrible!
 
@@ -40,12 +39,6 @@ in summary:
 
 which is the disaster when we reach झ, त्र, क्ष, फ, र्
 
-
-`rules.pattern` scans patters things does following
-* convert multiple char to single standard char
-* position of ref(रेफ)
-* position of `ि`, `ी`
-* make the `फ`, `झ` which aren't even define.
 
 ****
 
