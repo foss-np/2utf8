@@ -52,11 +52,11 @@ which is the disaster when we reach झ, त्र, क्ष, फ, र्
 # FAQ
 ##### Why again unicode converter ?
 
-**A.** Its because earlier one was in java, I'm not wasting my hard-disk space just to run the stupid simple converter, and i don't like the 150+ MB eating memory java!
+**A.** Its because earlier one was in java, Decided not to wasting my hard-disk space or memory for java for stupid simple converter.
 
 ##### Why do in bash are you porting?
 
-**A.** Bash in quite fast and dirty approach to do the work. We will port if requirement arises in present no.
+**A.** Bash in quite fast and dirty approach to do the work. Yes, it has been ported to __js__ and __python3__ by [spradhan][sapradhan]@[nep-ttf2utf][ttf2]
 
 ##### Still Don't get what you are looking for :disappointed:?
 
@@ -64,3 +64,5 @@ which is the disaster when we reach झ, त्र, क्ष, फ, र्
 
 [issue]: https://github.com/foss-np/2utf8/issues/new
 [preeti]: http://1.bp.blogspot.com/-N79TrOsQZ2M/TdC_nSUZjoI/AAAAAAAAAu4/VkGIjZQDVtI/s1600/ananda%2Bakchyar_keyboard.jpg
+[ttf2]: https://github.com/sapradhan/nep-ttf2utf
+[sapradhan]: https://github.com/sapradhan

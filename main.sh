@@ -8,7 +8,7 @@ function Usage {
     echo -e "\t-f | --file\tfile input"
 }
 
-function map {
+function parser_map {
     case $flip in
 	'c') utf="अ"; continue;;
 	'f') utf="ा"; continue;;
@@ -155,31 +155,39 @@ function map {
     esac
 }
 
+function parser_init {
+	text=$@  # $@ can't be used for counting
+	len=${#text}
+	out=""
+	for ((i=0; i <= len; i++)); do
+		flip=${text:$i:1}
+		out=$out$utf
+		parser_map
+	done
+	echo $out | sed -f $WD/rules.pattern
+}
+
+
 IFS="" #don't ignore spaces
 
 # check pipe
-if [ -t 0 ]; then
-    if [ $# -eq 0 ]; then
-	Usage
-	exit 1;
-    fi
-
-    if [ $1 == '-f' ]; then
-	text=$(cat $2);
-    else
-	text="$@" # $@ can't be used for counting
-    fi
-else
+if [ ! -t 0 ]; then
     while read data; do
-	text+="$data"
+		parser_init "$data"
     done
+	exit 0
 fi
 
-len=${#text}
-for ((i=0; i <= len; i++)); do
-    flip=${text:$i:1}
-    out=$out$utf
-    map
-done
+if [ $# -eq 0 ]; then
+	Usage
+	exit 1;
+fi
 
-echo $out | sed -f $WD/rules.pattern
+if [ $1 == '-f' ]; then
+    while read data; do
+		parser_init "$data"
+    done < $2
+	exit 0
+fi
+
+parser_init "$@"
