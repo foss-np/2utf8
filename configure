@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+echo "Checking: dependencies"
+list="git sed"
+for item in $list; do
+    echo -ne "\t"
+    type $item
+done
+
+git describe --tags > .version
+cat .version
