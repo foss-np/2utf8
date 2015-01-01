@@ -1,13 +1,9 @@
 #!/bin/bash
 
-set -e
-
 echo "Checking: dependencies"
-list="git sed"
-for item in $list; do
-    echo -ne "\t"
-    type $item
-done
+echo -ne "sed \t" $(which sed)
 
-git describe --tags > .version
-cat .version
+if [ -d .git ]; then
+    git describe --tags > .version
+    cat .version
+fi

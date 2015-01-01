@@ -10,12 +10,25 @@ ___
 #### HOW-TO USE
 
 	$ ./main.sh -h
-	Usage: 	2utf8 [Option]
-		-h | --help	Display this message
-		-f | --file	file input
+        Usage: 	2utf8 [Option] ...
+	        -i | --input    file input
+                -f | --f        font
+                -t | --type     plain(default), xml, doc, docx, pdf
+                -h | --help     display this message
+                -v | --version  version information
 
 
 ###### Note: *Terminal output may not look :poop: pretty*
+
+#### Setting up
+
+```bash
+    $ git clone https://github.com/foss-np/2utf8
+    $ cd 2utf8
+    $ ./configure
+    $ sudo make install    
+```
+
 
 #### Quick Test
 
