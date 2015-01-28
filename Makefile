@@ -1,6 +1,6 @@
 SOURCES = $(wildcard *.sh *.pattern)
-SUPPORT = "README.md AUTHORS LICENSE .version"
-PKG_NAME = "2utf8"
+SUPPORT = README.md AUTHORS LICENSE .version
+PKG_NAME = 2utf8
 
 default:
 	@echo "[FILE=<textfile>] make file"
